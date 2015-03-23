@@ -27,3 +27,4 @@ test/coverage/
 migrations/
 
 *.local
+._*
