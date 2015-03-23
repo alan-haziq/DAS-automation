@@ -1,7 +1,7 @@
 module.exports = {
     // Make this 
     app: {
-        name: "MEAN - A Modern Stack - Production"
+        name: "DAS Automation - Production"
     },
     facebook: {
         clientID: "APP_ID",

@@ -1,12 +1,14 @@
 module.exports = {
     // This is your MYSQL Database configuration
+    port: 3001,
     db: {
-        name: "mean_relational",
+        host: "192.168.1.129",
+        name: "das_db",
         password: "",
         username: "root"
     },
     app: {
-        name: "M*EAN Stack - Development"
+        name: "DAS Automation - Development"
     },
     // You will need to get your own client id's before this will work properly
     facebook: {

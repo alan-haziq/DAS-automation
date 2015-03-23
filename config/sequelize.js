@@ -12,6 +12,7 @@ console.log('Initializing Sequelize');
 
 // create your instance of sequelize
 var sequelize = new Sequelize(config.db.name, config.db.username, config.db.password, {
+  host: config.db.host,
   dialect: 'mysql',
   storage: config.db.storage
 });

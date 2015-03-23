@@ -82,9 +82,6 @@ module.exports = function(grunt) {
                     ext: 'js',
                     watch: ['app', 'config'],
                     delayTime: 1,
-                    env: {
-                        PORT: 3000
-                    },
                     cwd: __dirname
                 }
             }
