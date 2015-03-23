@@ -36,7 +36,10 @@ module.exports = function(sequelize, DataTypes) {
 					return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
 				}
 			},
-			associate: function(models) {
+    		classMethods: {
+				associate: function(models) {
+					User.belongsToMany(models.Project, { through: models.UserProject });
+				}
 			}
 		}
 	);

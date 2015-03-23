@@ -2,19 +2,21 @@
 
 module.exports = function(sequelize, DataTypes) {
 
-	var MileStone = sequelize.define('MileStone', {
+	var Milestone = sequelize.define('Milestone', {
 			forcastDate: DataTypes.DATE,
 			actualDate: DataTypes.DATE,
-			status: DataTypes.INTEGER,
+			status: DataTypes.ENUM('PENDING', 'IN PROGRESS', 'COMPLETED', 'BLOCKED', 'RETURNED'),
 			percentComplete: DataTypes.FLOAT,
 			packageConfidence: DataTypes.INTEGER
 		},
 		{
-			associate: function(models){
-				MileStone.belongsTo(models.Project);
+    		classMethods: {
+				associate: function(models){
+					Milestone.belongsTo(models.Project);
+				}
 			}
 		}
 	);
 
-	return MileStone;
+	return Milestone;
 };

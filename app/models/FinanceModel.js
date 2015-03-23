@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
 			submittedDate: DataTypes.DATE,
 			opportunityId: DataTypes.STRING,
 			modelName: DataTypes.STRING,
-			modelStatus: DataTypes.INTEGER,
+			modelStatus: DataTypes.ENUM('PENDING', 'ACTIVE', 'CLOSED'),
 			statusDate: DataTypes.DATE,
 			owner: DataTypes.STRING,
 			modelComponents: DataTypes.STRING,
@@ -16,9 +16,12 @@ module.exports = function(sequelize, DataTypes) {
 			costOverRideReason: DataTypes.TEXT
 		},
 		{
-			associate: function(models){
-				FinanceModel.belongsTo(models.Project);
-				FinanceModel.hasMany(models.FinanceModelItem);
+    		classMethods: {
+				associate: function(models){
+					FinanceModel.belongsTo(models.Project);
+					FinanceModel.hasOne(models.CostPackage);
+					FinanceModel.hasMany(models.FinanceModelItem);
+				}
 			}
 		}
 	);
