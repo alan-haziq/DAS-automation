@@ -1,6 +1,6 @@
 
 var users       = require('../app/controllers/users');
-var articles    = require('../app/controllers/articles');
+var projects    = require('../app/controllers/projects');
 var index       = require('../app/controllers/index');
 
 exports.init = function(app, passport, auth) {
@@ -58,15 +58,23 @@ exports.init = function(app, passport, auth) {
     app.param('userId', users.user);
 
     // Article Routes
-    app.get('/articles', articles.all);
-    app.post('/articles', auth.requiresLogin, articles.create);
-    app.get('/articles/:articleId', articles.show);
-    app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
-    app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
+    // app.get('/articles', articles.all);
+    // app.post('/articles', auth.requiresLogin, articles.create);
+    // app.get('/articles/:articleId', articles.show);
+    // app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
+    // app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
 
     // Finish with setting up the articleId param
     // Note: the articles.article function will be called everytime then it will call the next function. 
-    app.param('articleId', articles.article);
+    // app.param('articleId', articles.article);
+
+    // Project
+    app.get('/projects', projects.all);
+    app.post('/projects', projects.create);
+    app.get('/projects/:projectId', projects.show);
+    app.put('/projects/:projectId', projects.update);
+    app.del('/projects/:projectId', projects.destroy);
+    app.param('projectId', projects.project);
 
     // Home route
     app.get('/', index.render);
