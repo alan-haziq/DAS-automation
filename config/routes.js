@@ -1,6 +1,12 @@
 
 var users       = require('../app/controllers/users');
 var projects    = require('../app/controllers/projects');
+var milestones    = require('../app/controllers/milestones');
+var financeModels    = require('../app/controllers/financeModels');
+var financeModelItems    = require('../app/controllers/financeModelItems');
+var financeModelItemLines    = require('../app/controllers/financeModelItemLines');
+var costPackages    = require('../app/controllers/costPackages');
+var costPackageLines    = require('../app/controllers/costPackageLines');
 var index       = require('../app/controllers/index');
 
 exports.init = function(app, passport, auth) {
@@ -74,7 +80,54 @@ exports.init = function(app, passport, auth) {
     app.get('/projects/:projectId', projects.show);
     app.put('/projects/:projectId', projects.update);
     app.del('/projects/:projectId', projects.destroy);
+    app.post('/projects/:projectId/users', projects.addUser);
+    app.del('/projects/:projectId/users', projects.removeUser);
     app.param('projectId', projects.project);
+
+    // Milestones
+    app.get('/milestones', milestones.all);
+    app.post('/milestones', milestones.create);
+    app.get('/milestones/:milestoneId', milestones.show);
+    app.put('/milestones/:milestoneId', milestones.update);
+    app.del('/milestones/:milestoneId', milestones.destroy);
+    app.param('milestoneId', milestones.milestone);
+
+    // Finances
+    app.get('/financeModels', financeModels.all);
+    app.post('/financeModels', financeModels.create);
+    app.get('/financeModels/:financeModelId', financeModels.show);
+    app.put('/financeModels/:financeModelId', financeModels.update);
+    app.del('/financeModels/:financeModelId', financeModels.destroy);
+    app.param('financeModelId', financeModels.financeModel);
+    // Finances Model Item
+    app.get('/financeModelItems', financeModelItems.all);
+    app.post('/financeModelItems', financeModelItems.create);
+    app.get('/financeModelItems/:financeModelItemId', financeModelItems.show);
+    app.put('/financeModelItems/:financeModelItemId', financeModelItems.update);
+    app.del('/financeModelItems/:financeModelItemId', financeModelItems.destroy);
+    app.param('financeModelItemId', financeModelItems.financeModelItem);
+    // Finances Model Item
+    app.get('/financeModelItemLines', financeModelItemLines.all);
+    app.post('/financeModelItemLines', financeModelItemLines.create);
+    app.get('/financeModelItemLines/:financeModelItemLineId', financeModelItemLines.show);
+    app.put('/financeModelItemLines/:financeModelItemLineId', financeModelItemLines.update);
+    app.del('/financeModelItemLines/:financeModelItemLineId', financeModelItemLines.destroy);
+    app.param('financeModelItemLineId', financeModelItemLines.financeModelItemLine);
+
+    // Cost Package
+    app.get('/costPackages', costPackages.all);
+    app.post('/costPackages', costPackages.create);
+    app.get('/costPackages/:costPackageId', costPackages.show);
+    app.put('/costPackages/:costPackageId', costPackages.update);
+    app.del('/costPackages/:costPackageId', costPackages.destroy);
+    app.param('costPackageId', costPackages.costPackage);
+    // Cost Package Line
+    app.get('/costPackageLines', costPackageLines.all);
+    app.post('/costPackageLines', costPackageLines.create);
+    app.get('/costPackageLines/:costPackageLineId', costPackageLines.show);
+    app.put('/costPackageLines/:costPackageLineId', costPackageLines.update);
+    app.del('/costPackageLines/:costPackageLineId', costPackageLines.destroy);
+    app.param('costPackageLineId', costPackageLines.costPackageLine);
 
     // Home route
     app.get('/', index.render);

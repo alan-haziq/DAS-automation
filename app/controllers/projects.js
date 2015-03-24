@@ -14,7 +14,7 @@ var allowedFields = ["submittedDate", "contractedStartDate", "projectType", "ora
  */
 exports.project = function(req, res, next, id) {
     console.log('id => ' + id);
-    db.Project.find({ where: {id: id}, include: [db.MileStone, db.FinanceModel, db.CostPackage] }).success(function(project){
+    db.Project.find({ where: {id: id}, include: [db.Milestone, db.FinanceModel, db.CostPackage] }).success(function(project){
         if(!project) {
             return next(new Error('Failed to load project ' + id));
         } else {
@@ -100,12 +100,45 @@ exports.show = function(req, res) {
  * List of projects
  */
 exports.all = function(req, res) {
-    db.Project.findAll({include: [db.MileStone, db.FinanceModel, db.CostPackage]}).success(function(projects){
+    db.Project.findAll({include: [db.Milestone, db.FinanceModel, db.CostPackage]}).success(function(projects){
         return res.jsonp(projects);
     }).error(function(err){
         return res.render('error', {
             error: err,
             status: 500
         });
+    });
+};
+
+exports.addUser = function(req, res) {
+
+    var userId = req.body.userId;
+
+    db.User.find({ where: {id: userId} }).success(function(user){
+        if(!user) {
+            return next(new Error('Failed to find user ' + id));
+        } else {
+            req.project.addUser(user, function(err) {
+                return next();
+            });
+        }
+    }).error(function(err){
+        return next(err);
+    });
+};
+exports.removeUser = function(req, res) {
+
+    var userId = req.body.userId;
+
+    db.User.find({ where: {id: userId} }).success(function(user){
+        if(!user) {
+            return next(new Error('Failed to find user ' + id));
+        } else {
+            req.project.removeUser(user, function(err) {
+                return next();
+            });
+        }
+    }).error(function(err){
+        return next(err);
     });
 };
