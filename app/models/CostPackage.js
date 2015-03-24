@@ -9,11 +9,9 @@ module.exports = function(sequelize, DataTypes) {
 			packageConfidence: DataTypes.INTEGER
 		},
 		{
-    		classMethods: {
-				associate: function(models){
-					CostPackage.belongsTo(models.Project);
-					CostPackage.hasMany(models.CostPackageLine);
-				}
+			associate: function(models){
+				CostPackage.belongsTo(models.Project);
+				CostPackage.hasMany(models.CostPackageLine);
 			}
 		}
 	);

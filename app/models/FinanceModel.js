@@ -16,12 +16,10 @@ module.exports = function(sequelize, DataTypes) {
 			costOverRideReason: DataTypes.TEXT
 		},
 		{
-    		classMethods: {
-				associate: function(models){
-					FinanceModel.belongsTo(models.Project);
-					FinanceModel.hasOne(models.CostPackage);
-					FinanceModel.hasMany(models.FinanceModelItem);
-				}
+			associate: function(models){
+				FinanceModel.belongsTo(models.Project);
+				FinanceModel.belongsTo(models.CostPackage);
+				FinanceModel.hasMany(models.FinanceModelItem);
 			}
 		}
 	);

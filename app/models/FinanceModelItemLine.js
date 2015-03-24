@@ -11,10 +11,8 @@ module.exports = function(sequelize, DataTypes) {
 			percentage: DataTypes.FLOAT
 		},
 		{
-    		classMethods: {
-				associate: function(models){
-					FinanceModelItemLine.belongsTo(models.FinanceModelItem);
-				}
+			associate: function(models){
+				FinanceModelItemLine.belongsTo(models.FinanceModelItem);
 			}
 		}
 	);

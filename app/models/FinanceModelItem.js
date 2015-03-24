@@ -12,11 +12,9 @@ module.exports = function(sequelize, DataTypes) {
 			agreementType: DataTypes.INTEGER
 		},
 		{
-    		classMethods: {
-				associate: function(models){
-					FinanceModelItem.belongsTo(models.FinanceModel);
-					FinanceModelItem.hasMany(models.FinanceModelItemLine);
-				}
+			associate: function(models){
+				FinanceModelItem.belongsTo(models.FinanceModel);
+				FinanceModelItem.hasMany(models.FinanceModelItemLine);
 			}
 		}
 	);

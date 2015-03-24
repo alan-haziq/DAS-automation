@@ -10,10 +10,8 @@ module.exports = function(sequelize, DataTypes) {
 			packageConfidence: DataTypes.INTEGER
 		},
 		{
-    		classMethods: {
-				associate: function(models){
-					Milestone.belongsTo(models.Project);
-				}
+			associate: function(models){
+				Milestone.belongsTo(models.Project);
 			}
 		}
 	);

@@ -12,13 +12,11 @@ module.exports = function(sequelize, DataTypes) {
 			opportunityType: DataTypes.ENUM('DAS', 'WLAN', 'SMALL_CELL', 'COMBINED')
 		},
 		{
-    		classMethods: {
-				associate: function(models){
-					Project.hasMany(models.Milestone);
-					Project.hasMany(models.CostPackage);
-					Project.hasMany(models.FinanceModel);
-					Project.belongsToMany(models.User, { through: models.UserProject });
-				}
+			associate: function(models){
+				Project.hasMany(models.Milestone);
+				Project.hasMany(models.CostPackage);
+				Project.hasMany(models.FinanceModel);
+				Project.hasMany(models.User, { through: models.UserProject });
 			}
 		}
 	);
