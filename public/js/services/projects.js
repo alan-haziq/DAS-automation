@@ -1,5 +1,5 @@
 //Project service used for projects REST endpoint
-angular.module('mean.services').factory("Projects", ['$resource', function($resource) {
+angular.module('das.services').factory("Projects", ['$resource', function($resource) {
     return $resource('projects/:articleId', {
         articleId: '@id'
     }, {
