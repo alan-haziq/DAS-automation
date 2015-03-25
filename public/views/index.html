@@ -1,3 +1,19 @@
-<section data-ng-controller="IndexController">
-	<h1>This is the home view</h1>
-</section>
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top" data-ng-controller="HeaderController" data-ng-include="'views/header.html'">
+</div>
+<!-- END HEADER -->
+<div class="clearfix"></div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container" >
+	<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper" ng-include="'views/sidebar.html'"></div>
+	<!-- END SIDEBAR -->
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper" data-ng-view></div>
+	<!-- END CONTENT -->
+	<!-- BEGIN QUICK SIDEBAR -->
+	<a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+	<div class="page-quick-sidebar-wrapper" ng-include="'views/quicksidebar.html'"></div>
+	<!-- END QUICK SIDEBAR -->
+</div>
+<!-- END CONTAINER -->
