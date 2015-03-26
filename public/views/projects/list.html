@@ -1,7 +1,7 @@
-<div data-ng-controller="ProjectsController">
+<div>
 	<!-- BEGIN PAGE HEADER-->
 	<h3 class="page-title">
-		Projects <small>lists of projects</small>
+		Projects <small>list of projects</small>
 	</h3>
 	<div class="page-bar">
 		<ul class="page-breadcrumb">
@@ -17,4 +17,36 @@
 		</ul>
 	</div>
 	<!-- END PAGE HEADER-->
+	<!-- BEGIN PAGE CONTENT-->
+	<div class="row">
+		<div class="col-md-12">
+			<!-- BEGIN EXAMPLE TABLE PORTLET-->
+			<div class="portlet box blue-hoki">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-globe"></i>Projects
+					</div>
+					<div class="tools">
+					</div>
+				</div>
+				<div class="portlet-body">
+					<table class="table table-striped table-hover projects-table" ng-table="tableParams">
+				    	<tr ng-repeat="project in $data" style="cursor:pointer;"> <!-- ng-click="$state.go('project.overview', {id: project.project_id})" -->
+					        <td data-title="'oracleProjectId'" ng-bind="project.oracleProjectId" sortable="'oracleProjectId'" filterable="{field:'oracleProjectId', type:'text', align:'LEFT'}"></td>
+					        <td data-title="'submittedDate'" sortable="'submittedDate'" filterable="{field:'submittedDate', type:'date_range'}">{{ project.submittedDate | date:'M/d/yyyy' }}</td>
+					        <td data-title="'contractedStartDate'" sortable="'contractedStartDate'" filterable="{field:'contractedStartDate', type:'date_range'}">{{ project.contractedStartDate | date:'M/d/yyyy' }}</td>
+					        <td data-title="'projectType'" ng-bind="project.projectType"  sortable="'projectType'" filterable="{field:'projectType', type:'dropdown'}"></td>
+					        <td data-title="'projectStatus'" ng-bind="project.projectStatus"  sortable="'projectStatus'" filterable="{field:'projectStatus', type:'dropdown'}"></td>
+					        <td data-title="'opportunityId'" ng-bind="project.opportunityId"  sortable="'opportunityId'" filterable="{field:'opportunityId'}"></td>
+					        <td data-title="'opportunityType'" ng-bind="project.opportunityType"  sortable="'opportunityType'" filterable="{field:'opportunityType', type:'dropdown'}"></td>
+					        <td data-title="'createdAt'" sortable="'createdAt'" filterable="{field:'createdAt', type:'date_range'}">{{ project.createdAt | date:'M/d/yyyy' }}</td>
+					        <td data-title="'updatedAt'" sortable="'updatedAt'" filterable="{field:'updatedAt', type:'date_range'}">{{ project.updatedAt | date:'M/d/yyyy' }}</td>
+				    	</tr>
+				    </table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<script>
+</script>
