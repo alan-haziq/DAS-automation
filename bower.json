@@ -13,6 +13,7 @@
     "ng-table": "~0.5.4",
     "angular-lodash": "~0.1.2",
     "angular-slider": "~0.2.14",
-    "checklist-model": "~0.2.4"
+    "checklist-model": "~0.2.4",
+    "angular-xeditable": "~0.1.9"
   }
 }

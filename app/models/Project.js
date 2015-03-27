@@ -3,6 +3,8 @@
 module.exports = function(sequelize, DataTypes) {
 
 	var Project = sequelize.define('Project', {
+			title: DataTypes.STRING,
+			description: DataTypes.TEXT,
 			submittedDate: DataTypes.DATE,
 			contractedStartDate: DataTypes.DATE,
 			projectType: DataTypes.ENUM('DAS', 'WLAN', 'SMALL_CELL'),

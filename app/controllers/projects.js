@@ -5,7 +5,7 @@ var db = require('../../config/sequelize');
 var _         = require('lodash');
 
 
-var allowedFields = ["submittedDate", "contractedStartDate", "projectType", "oracleProjectId", "projectStatus", "opportunityId", "opportunityType"];
+var allowedFields = ["title", "description", "submittedDate", "contractedStartDate", "projectType", "oracleProjectId", "projectStatus", "opportunityId", "opportunityType"];
 
 /**
  * Find project by id
@@ -56,7 +56,7 @@ exports.update = function(req, res) {
 
     // create a new variable to hold the project that was placed on the req object.
     var project = req.project;
-
+    
     project.updateAttributes(
         _.pick ( req.body, allowedFields )
     ).success(function(a){

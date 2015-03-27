@@ -73,7 +73,9 @@ module.exports = function(grunt) {
                     {cwd: 'bower_components/angular-ui-router/release',                                     src: ['*.js'], dest: 'public/lib/angular-ui-router', expand: true},
                     {cwd: 'bower_components/angular-lodash/dist',                                     src: ['*.js'], dest: 'public/lib/angular-lodash', expand: true},
                     {cwd: 'bower_components/angular-slider',                                     src: ['*.*'], dest: 'public/lib/angular-slider', expand: true},
-                    {cwd: 'bower_components/checklist-model',                                     src: ['*.js'], dest: 'public/lib/checklist-model', expand: true}
+                    {cwd: 'bower_components/checklist-model',                                     src: ['*.js'], dest: 'public/lib/checklist-model', expand: true},
+                    {cwd: 'bower_components/angular-xeditable/dist/css',                                     src: ['*.css'], dest: 'public/lib/angular-xeditable', expand: true},
+                    {cwd: 'bower_components/angular-xeditable/dist/js',                                     src: ['*.js'], dest: 'public/lib/angular-xeditable', expand: true}
                 ]
             }
         },

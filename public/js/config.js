@@ -43,3 +43,10 @@ angular.module('das').config(['$stateProvider', '$urlRouterProvider', function($
     // Redirect any unmatched url
     $urlRouterProvider.otherwise("dashboard");  
 }]);
+
+angular.module('das')
+    .run(function(editableOptions, editableThemes) {
+        editableThemes.bs3.inputClass = "input-sm";
+        editableThemes.bs3.buttonsClass = "btn-sm";
+        editableOptions.theme = 'bs3';
+    });

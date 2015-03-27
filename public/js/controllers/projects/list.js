@@ -21,8 +21,8 @@ angular.module('das')
   }]);
 
 angular.module('das.controllers')
-  .controller('ProjectsController', ['$scope', '$routeParams', '$location', 'Global', 'ngTableParams', 'projects',
-  	function ($scope, $routeParams, $location, Global, ngTableParams, projects) {
+  .controller('ProjectsController', ['$scope', '$state', '$routeParams', '$location', 'Global', 'ngTableParams', 'projects',
+  	function ($scope, $state, $routeParams, $location, Global, ngTableParams, projects) {
 	    $scope.global = Global;
 
 	    $scope.projects = projects;
@@ -60,12 +60,16 @@ angular.module('das.controllers')
 				},
 				getFilteredData: function($defer, params, filterable) {
 					if (!$scope.projects || !$scope.projects.length) return [];
-					
+
 					data = params.doFilterableAction ( $scope.projects, filterable );
 
 					$defer.resolve(data);
 				}
 			}
 		);
+
+		$scope.onOpenProject = function(project_id) {
+			$state.go('projects_edit', {id: project_id});
+		};
     
   }]);
