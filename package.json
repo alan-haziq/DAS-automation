@@ -28,6 +28,7 @@
     "grunt-cli": "latest",
     "grunt-copy": "latest",
     "grunt-env": "latest",
+    "grunt-forever": "^0.4.5",
     "jade": "1.3.1",
     "lodash": "latest",
     "mysql": "^2.5.5",

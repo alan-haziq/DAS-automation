@@ -75,7 +75,8 @@ module.exports = function(grunt) {
                     {cwd: 'bower_components/angular-slider',                                     src: ['*.*'], dest: 'public/lib/angular-slider', expand: true},
                     {cwd: 'bower_components/checklist-model',                                     src: ['*.js'], dest: 'public/lib/checklist-model', expand: true},
                     {cwd: 'bower_components/angular-xeditable/dist/css',                                     src: ['*.css'], dest: 'public/lib/angular-xeditable', expand: true},
-                    {cwd: 'bower_components/angular-xeditable/dist/js',                                     src: ['*.js'], dest: 'public/lib/angular-xeditable', expand: true}
+                    {cwd: 'bower_components/angular-xeditable/dist/js',                                     src: ['*.js'], dest: 'public/lib/angular-xeditable', expand: true},
+                    {cwd: 'bower_components/angular-rangeslider/',                                     src: ['*.*'], dest: 'public/lib/angular-rangeslider', expand: true}
                 ]
             }
         },
@@ -112,6 +113,14 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'test/karma/karma.conf.js'
             }
+        },
+        forever: {
+          server: {
+            options: {
+              index: 'app.js',
+              logDir: 'logs'
+            }
+          }
         }
     });
 
@@ -124,6 +133,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-copy');
+    grunt.loadNpmTasks('grunt-forever');
 
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
