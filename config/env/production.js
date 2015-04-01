@@ -1,5 +1,12 @@
 module.exports = {
-    // Make this 
+    // This is your MYSQL Database configuration
+    port: 80,
+    db: {
+        host: "localhost",
+        name: "das_db",
+        password: "!@#456&*(0-=",
+        username: "root"
+    },
     app: {
         name: "DAS Automation - Production"
     },
