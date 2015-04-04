@@ -70,10 +70,20 @@ angular.module('das.controllers')
 	    };
 
 	    $scope.onEditMilestone = function(milestoneId) {
+			
 			openModal('views/projects/edit_milestone.html', 
 	    			'ProjectEditMilestoneController',
 	    			{ 
 	    				milestoneId: function() { return milestoneId; } 
-	    			});	    	
+	    			});
+
+	    };
+
+	    $scope.onUpdateTeam = function() {
+
+			openModal('views/projects/edit_team.html', 
+	    			'ProjectEditTeamController',
+	    			{});
+			
 	    };
   }]);

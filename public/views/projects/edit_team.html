@@ -1,0 +1,29 @@
+<div class="portlet box green " style="margin:0px;">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i> Teams
+		</div>
+		<div class="tools">
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<form class="form-horizontal" role="form">
+			<div class="form-body">
+				<div class="form-group" ng-repeat="(role, name) in USER_ROLE">
+					<label class="col-md-4 control-label">{{name}}</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="Enter name" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-offset-4 col-md-8">
+							<button type="submit" class="btn green" ng-click="onOK()">Update</button>
+							<button type="button" class="btn default" ng-click="onCancel()">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

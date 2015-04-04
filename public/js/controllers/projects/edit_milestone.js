@@ -12,9 +12,15 @@ angular.module('das.controllers')
 
 
 	    $scope.onOK = function() {
-	    	$scope.milestone.$update();
-
-	    	$modalInstance.close(true);
+	    	var callback = function() {
+	    		$modalInstance.close(true);
+	    	};
+	    	if(milestoneId != "") {
+	    		$scope.milestone.$update(callback);
+	    	}
+	    	else {
+	    		$scope.milestone.$save(callback);
+	    	}
 	    };
 
 	    $scope.onCancel = function() {
@@ -25,6 +31,9 @@ angular.module('das.controllers')
 	    	Milestones.get({milestoneId:milestoneId}).$promise.then(function(milestone) {
       			$scope.milestone = milestone;
       		});
+	    }
+	    else {
+	    	$scope.milestone = new Milestones({ProjectId: project.id});
 	    }
 
 

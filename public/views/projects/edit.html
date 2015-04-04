@@ -151,10 +151,120 @@
 					    	</tr>
 					    </tbody>
 				    </table>
+					<div class="row form-group">
+						<button class="btn btn-primary pull-right" ng-click="onEditMilestone('')">Add Milestone</button>
+					</div>
 				</div>
 			</div>
 		</div>
 		<!-- END: Project Milestones -->
+
+		<!-- BEGIN: Project Team -->
+		<div class="col-md-6">
+			<div class="portlet light bg-inverse">
+				<div class="portlet-title">
+					<div class="caption font-green-sharp">
+						<i class="icon-settings font-green-sharp"></i>
+						<span class="caption-subject bold uppercase">Team</span>
+						<span class="caption-helper"></span>
+					</div>
+					<div class="tools">
+						<a href="" class="collapse">
+						</a>
+						<a href="" class="reload" ng-click="onReload()">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<table class="table table-striped table-hover projects-table">
+						<thead>
+							<tr>
+						        <th style="width:50%">Role</th>
+						        <th style="width:50%">Name</th>
+							</tr>
+						</thead>
+						<tbody>
+					    	<tr>
+						        <td>Leasing</td>
+						        <td>Joe</td>
+					    	</tr>
+					    	<tr>
+						        <td>Account Manager</td>
+						        <td>TBD</td>
+					    	</tr>
+					    	<tr>
+						        <td>Project Manager</td>
+						        <td>Alan</td>
+					    	</tr>
+					    	<tr>
+						        <td>VGM</td>
+						        <td>Mike</td>
+					    	</tr>
+					    </tbody>
+				    </table>
+					<div class="row form-group">
+						<button class="btn btn-primary pull-right" ng-click="onUpdateTeam()">Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END: Project Team -->
+
+		<!-- BEGIN: Project Finances -->
+		<div class="col-md-6">
+			<div class="portlet light bg-inverse">
+				<div class="portlet-title">
+					<div class="caption font-green-sharp">
+						<i class="icon-settings font-green-sharp"></i>
+						<span class="caption-subject bold uppercase">Finances</span>
+						<span class="caption-helper">$4,700,000</span>
+					</div>
+					<div class="tools">
+						<a href="" class="collapse">
+						</a>
+						<a href="" class="reload" ng-click="onReload()">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<table class="table table-striped table-hover projects-table">
+						<thead>
+							<tr>
+								<th style="width:33%"></th>
+								<th style="width:34%">Forecast</th>
+								<th style="width:33%">Plan</th>
+							</tr>
+						</thead>
+						<tbody>
+					    	<tr>
+						        <td>Revenue</td>
+						        <td>$2,000,000</td>
+						        <td>$2,500,000</td>
+					    	</tr>
+					    	<tr>
+						        <td>Lease Dates Sprint</td>
+						        <td>01/02/2016</td>
+						        <td>01/02/2016</td>
+					    	</tr>
+					    	<tr>
+						        <td>Verizon</td>
+						        <td>01/02/2016</td>
+						        <td>01/02/2016</td>
+					    	</tr>
+					    	<tr>
+						        <td>Completion</td>
+						        <td>01/02/2016</td>
+						        <td>01/02/2016</td>
+					    	</tr>
+					    </tbody>
+				    </table>
+					<div class="row form-group">
+						<button class="btn btn-primary pull-right">View</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END: Project Finances -->
 	</div>
 	<!-- END PAGE CONTENT-->
 	</div>

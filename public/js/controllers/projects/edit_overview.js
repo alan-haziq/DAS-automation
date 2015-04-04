@@ -8,13 +8,14 @@ angular.module('das.controllers')
 	    $scope.PROJECT_STATUS = PROJECT_STATUS;
 	    $scope.OPPORTUNITY_TYPE = OPPORTUNITY_TYPE;
 
-	    $scope.onUpdate = function() {
-	    	$scope.project.$update();
+	    $scope.onUpdate = function(callback) {
+	    	$scope.project.$update(callback);
 	    };
 	    $scope.onOK = function() {
-	    	$scope.onUpdate();
+	    	$scope.onUpdate(function() {
+	    		$modalInstance.close(true);
+	    	});
 
-	    	$modalInstance.close(true);
 	    };
     	$scope.onCancel = function() {
     		$modalInstance.dismiss();
