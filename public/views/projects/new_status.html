@@ -1,0 +1,71 @@
+<div class="portlet box green " style="margin:0px;">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i> New Project Status
+		</div>
+		<div class="tools">
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<form class="form-horizontal" role="form">
+			<div class="form-body">
+				<div class="form-group">
+					<label class="col-md-4 control-label">Status Date</label>
+					<div class="col-md-8">
+			            <input type="text" class="form-control" /> <!-- is-open="openedSD" datepicker-options="" datepicker-popup close-text="Close" ng-mousedown="openedSD=!openedSD"-->
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Phase</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="Enter project Status" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Project Status</label>
+					<div class="col-md-8">
+						 <select class="form-control" ng-model="project.projectStatus" ng-options="value as label for (value, label) in PROJECT_STATUS"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Overall percent complete</label>
+					<div class="col-md-8">
+						<div range-slider min="0" max="100" model-max="percentComplete" pin-handle="min" attach-handle-values="true" show-values="true"></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Significant Accomplishments</label>
+					<div class="col-md-8">
+						<textarea class="form-control" placeholder="" style="height:80px;"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Next Steps</label>
+					<div class="col-md-8">
+						<textarea class="form-control" placeholder="" style="height:80px;"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Risk</label>
+					<div class="col-md-8">
+						<textarea class="form-control" placeholder="" style="height:80px;"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Risk Mitigation</label>
+					<div class="col-md-8">
+						<textarea class="form-control" placeholder="" style="height:80px;"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-offset-4 col-md-8">
+							<button type="submit" class="btn green" ng-click="onOK()">Update</button>
+							<button type="button" class="btn default" ng-click="onCancel()">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -3,6 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
 
 	var Milestone = sequelize.define('Milestone', {
+			title: DataTypes.STRING,
 			forcastDate: DataTypes.DATE,
 			actualDate: DataTypes.DATE,
 			status: DataTypes.ENUM('PENDING', 'IN PROGRESS', 'COMPLETED', 'BLOCKED', 'RETURNED'),

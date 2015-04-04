@@ -1,6 +1,6 @@
 angular.module('das', ['ngCookies', 'ngResource', 'ngRoute', "oc.lazyLoad",  "ngSanitize", 'ui.bootstrap', 'ui.router', 
 	'angular-lodash',
-	'ui.slider', 'checklist-model', 'ngTable', 'xeditable',
+	'ui.slider', 'checklist-model', 'ngTable', 'xeditable', 'ui-rangeSlider',
 	'das.system', 'das.services', 'das.controllers']);
 
 angular.module('das.system', []);

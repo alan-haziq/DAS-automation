@@ -21,27 +21,59 @@ angular.module('das')
   }]);
 
 angular.module('das.controllers')
-  .controller('ProjectEditController', ['$scope', '$routeParams', '$location', 'Global', 'ngTableParams', 
-  				'Projects', 'project', 'PROJECT_TYPE', 'PROJECT_STATUS', 'OPPORTUNITY_TYPE', 
-  	function ($scope, $routeParams, $location, Global, ngTableParams, Projects, project, PROJECT_TYPE, PROJECT_STATUS, OPPORTUNITY_TYPE) {
+  .controller('ProjectEditController', ['$scope', '$routeParams', '$location', 'Global', '$modal',
+  			'project', 'Projects', 'PROJECT_TYPE', 'PROJECT_STATUS', 'OPPORTUNITY_TYPE', 'MILESTONE_STATUS',
+  	function ($scope, $routeParams, $location, Global, $modal, project, Projects, PROJECT_TYPE, PROJECT_STATUS, OPPORTUNITY_TYPE, MILESTONE_STATUS) {
 	    $scope.global = Global;
 
 	    $scope.project = project;
-
 	    $scope.PROJECT_TYPE = PROJECT_TYPE;
 	    $scope.PROJECT_STATUS = PROJECT_STATUS;
 	    $scope.OPPORTUNITY_TYPE = OPPORTUNITY_TYPE;
+	    $scope.MILESTONE_STATUS = MILESTONE_STATUS;
 
-	    $scope.onReload = function() {
+	    $scope.reload = function() {
 	    	Projects.get({projectId:$scope.project.id}).$promise.then(function(project) {
       			$scope.project = project;
       		});
 	    };
 
-	    $scope.onUpdate = function() {
-	    	console.log('---Saving project---');
-	    	console.log($scope.project);
-	    	$scope.project.$update();
+	    var openModal = function(template, controller, resolve) {
+	    	resolve = _.extend({
+    			project: function() { return $scope.project; }
+    		}, resolve);
+	    	var instModal = $modal.open({
+	    		templateUrl: template,
+	    		controller: controller,
+	    		resolve: resolve
+	    	});
+
+	    	instModal.result.then(function(result) {
+	    		$scope.reload();
+	    	}, function() {
+
+	    	});
 	    };
-    
+
+	    $scope.onUpdateProjectDetail = function() {
+
+	    	openModal('views/projects/edit_overview.html', 
+	    			'ProjectEditOverviewController');
+
+	    };
+
+	    $scope.onUpdateProjectStatus = function() {
+			
+			openModal('views/projects/new_status.html', 
+	    			'ProjectNewStatusController');
+
+	    };
+
+	    $scope.onEditMilestone = function(milestoneId) {
+			openModal('views/projects/edit_milestone.html', 
+	    			'ProjectEditMilestoneController',
+	    			{ 
+	    				milestoneId: function() { return milestoneId; } 
+	    			});	    	
+	    };
   }]);

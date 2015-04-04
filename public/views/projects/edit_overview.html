@@ -1,0 +1,71 @@
+<div class="portlet box green " style="margin:0px;">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class="fa fa-gift"></i> Edit Project Details
+		</div>
+		<div class="tools">
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<form class="form-horizontal" role="form">
+			<div class="form-body">
+				<div class="form-group">
+					<label class="col-md-4 control-label">Title</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="Enter project title" ng-model="project.title" required >
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Description</label>
+					<div class="col-md-8">
+						<textarea class="form-control" placeholder="Enter project description" ng-model="project.description" style="height:80px;"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Submitted Date</label>
+					<div class="col-md-8">
+			            <input type="text" class="form-control" ng-model="project.submittedDate" is-open="openedSD" datepicker-options="" datepicker-popup close-text="Close" ng-mousedown="openedSD=!openedSD" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Contract Start Date</label>
+					<div class="col-md-8">
+			            <input type="text" class="form-control" ng-model="project.contractedStartDate" is-open="openedCSD" datepicker-options="" datepicker-popup close-text="Close" ng-mousedown="openedCSD=!openedCSD" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Project Type</label>
+					<div class="col-md-8">
+						 <select class="form-control" ng-model="project.projectType" ng-options="value as label for (value, label) in PROJECT_TYPE"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Oracle Project ID</label>
+					<div class="col-md-8">
+						<input class="form-control" placeholder="Enter project Oracle Project ID" ng-model="project.oracleProjectId" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Opportunity ID</label>
+					<div class="col-md-8">
+						<input class="form-control" placeholder="Enter project Opportunity ID" ng-model="project.opportunityId" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Opportunity Type</label>
+					<div class="col-md-8">
+						 <select class="form-control" ng-model="project.opportunityType" ng-options="value as label for (value, label) in OPPORTUNITY_TYPE"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-offset-4 col-md-8">
+							<button type="submit" class="btn green" ng-click="onOK()">Save</button>
+							<button type="button" class="btn default" ng-click="onCancel()">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

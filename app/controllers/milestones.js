@@ -5,7 +5,7 @@ var db = require('../../config/sequelize');
 var _         = require('lodash');
 
 
-var allowedFields = ["forcastDate", "actualDate", "status", "percentComplete", "packageConfidence", "ProjectId"];
+var allowedFields = ["title", "forcastDate", "actualDate", "status", "percentComplete", "packageConfidence", "ProjectId"];
 
 /**
  * Find milestone by id

@@ -23,9 +23,9 @@
 	<!-- END PAGE HEADER-->
 	<!-- BEGIN PAGE CONTENT-->
 	<div class="row">
-		<div class="col-md-12">
-			<!-- BEGIN: Project Summary -->
-			<div class="portlet light bg-inverse col-md-4">
+		<!-- BEGIN: Project Summary -->
+		<div class="col-md-6">
+			<div class="portlet light bg-inverse">
 				<div class="portlet-title">
 					<div class="caption font-green-sharp">
 						<i class="icon-settings font-green-sharp"></i>
@@ -37,74 +37,28 @@
 						</a>
 						<a href="" class="reload" ng-click="onReload()">
 						</a>
-						<a href="" class="fullscreen">
-						</a>
 					</div>
 				</div>
 				<div class="portlet-body">
 					<div clas="row">
 						<div class="col-md-12">
-							<h3><a href="javascript:;" editable-text="project.title" e-required e-placeholder="Enter project title" e-style="width:100%;" onaftersave="onUpdate()">{{ project.title || "Please enter title" }}</a></h3>
+							<h3>{{ project.title }}</h3>
 						</div>
 					</div>
 					<div class="row">
 						<div class="portlet-body col-md-12">
 							<div class="note note-info">
-								<h4>
-									<a href="javascript;" editable-textarea="project.description" e-rows="5" e-style="width:100%;" e-placeholder="Enter project description" ng-bind-html=" project.description | nl2br " onaftersave="onUpdate()"></a>
-								</h4>
+								<h4 ng-bind-html="project.description | nl2br"></h4>
 							</div>
 						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-4 control-label">Phase</div>
-						<div class="col-md-8"></div>
 					</div>
 					<div class="row form-group">
 						<div class="col-md-4 control-label">Project ID</div>
 						<div class="col-md-8 input-group">{{project.id}}</div>
 					</div>
 					<div class="row form-group">
-						<div class="col-md-4 control-label">Project Type</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript;" editable-select="project.projectType" e-ng-options="key as value for (key, value) in PROJECT_TYPE" e-placeholder="Enter select project type" e-required onaftersave="onUpdate()">{{PROJECT_TYPE[project.projectType]}}</a>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-4 control-label">Submitted Date</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript;" editable-bsdate="project.submittedDate" e-placeholder="Enter select submitted date" onaftersave="onUpdate()">{{project.submittedDate | date:"M/d/yyyy" || 'None'}}</a>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-4 control-label">Contract Start Date</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript;" editable-bsdate="project.contractedStartDate" e-placeholder="Enter select contract start date" onaftersave="onUpdate()">{{project.contractedStartDate | date:"M/d/yyyy" || 'None'}}</a>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-4 control-label">Oracle Project ID</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript:;" editable-text="project.oracleProjectId" e-required e-placeholder="Enter oracle Project Id" e-style="width:100%;" onaftersave="onUpdate()">{{ project.oracleProjectId || "Please enter oracle Project Id" }}</a>
-						</div>
-					</div>
-					<div class="row form-group">
 						<div class="col-md-4 control-label">Project Status</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript;" editable-select="project.projectStatus" e-ng-options="key as value for (key, value) in PROJECT_STATUS" e-placeholder="Enter select project status" e-required onaftersave="onUpdate()">{{PROJECT_STATUS[project.projectStatus]}}</a>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-4 control-label">Opportunity ID</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript:;" editable-text="project.opportunityId" e-required e-placeholder="Enter Opportunity ID" e-style="width:100%;" onaftersave="onUpdate()">{{ project.opportunityId || "Please enter Opportunity ID" }}</a>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-4 control-label">Opportunity Type</div>
-						<div class="col-md-8 input-group">
-							<a href="javascript;" editable-select="project.opportunityType" e-ng-options="key as value for (key, value) in OPPORTUNITY_TYPE" e-placeholder="Enter select opportunity type" e-required onaftersave="onUpdate()">{{OPPORTUNITY_TYPE[project.opportunityType]}}</a>
-						</div>
+						<div class="col-md-8 input-group">{{PROJECT_STATUS[project.projectStatus]}}</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-md-4 control-label">Created on</div>
@@ -114,9 +68,93 @@
 						<div class="col-md-4 control-label">Last updated on</div>
 						<div class="col-md-8 input-group">{{project.updatedAt | date:'M/d/yyyy hh:mm a' || 'None'}}</div>
 					</div>
+					<div class="row form-group">
+						<button class="btn btn-primary pull-right" ng-click="onUpdateProjectDetail()">Update</button>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!-- END: Project Summary -->
+		<!-- BEGIN: Project Status -->
+		<div class="col-md-6">
+			<div class="portlet light bg-inverse">
+				<div class="portlet-title">
+					<div class="caption font-green-sharp">
+						<i class="icon-settings font-green-sharp"></i>
+						<span class="caption-subject bold uppercase">Project Status</span>
+						<span class="caption-helper"></span>
+					</div>
+					<div class="tools">
+						<a href="" class="collapse">
+						</a>
+						<a href="" class="reload" ng-click="onReload()">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="row form-group">
+						<div class="col-md-4 control-label">Project Status</div>
+						<div class="col-md-8 input-group">{{PROJECT_STATUS[project.projectStatus]}}</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-md-4 control-label">Project Phase</div>
+						<div class="col-md-8 input-group">Design</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-md-12">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" area-valuemin="0" aria-valuemax="100" style="width:60%">60%</div>
+						</div>
+					</div>
+					<div class="row form-group">
+						<button class="btn btn-primary pull-right" ng-click="onUpdateProjectStatus()">New Status</button>
+					</div>
+				</div>
+			 </div>
+		</div>
+		<!-- END: Project Status -->
+		<!-- BEGIN: Project Milestones -->
+		<div class="col-md-12">
+			<div class="portlet light bg-inverse">
+				<div class="portlet-title">
+					<div class="caption font-green-sharp">
+						<i class="icon-settings font-green-sharp"></i>
+						<span class="caption-subject bold uppercase">Project Timeline</span>
+						<span class="caption-helper"></span>
+					</div>
+					<div class="tools">
+						<a href="" class="collapse">
+						</a>
+						<a href="" class="reload" ng-click="onReload()">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<table class="table table-striped table-hover projects-table">
+						<thead>
+							<tr>
+								<th>Title</th>
+						        <th>Status</th>
+						        <th>Forcasted</th>
+						        <th>Actual</th>
+						        <th>% Completed</th>
+						        <th>Confidence</th>
+							</tr>
+						</thead>
+						<tbody>
+					    	<tr ng-repeat="milestone in project.milestones" style="cursor:pointer;" ng-click="onEditMilestone(milestone.id)">
+						        <td>{{milestone.title}}</td>
+						        <td>{{MILESTONE_STATUS[milestone.status]}}</td>
+						        <td>{{ milestone.forcastDate | date:'M/d/yyyy' }}</td>
+						        <td>{{ milestone.actualDate | date:'M/d/yyyy' }}</td>
+						        <td>{{milestone.percentComplete}}%</td>
+						        <td>{{milestone.packageConfidence}}%</td>
+					    	</tr>
+					    </tbody>
+				    </table>
+				</div>
+			</div>
+		</div>
+		<!-- END: Project Milestones -->
 	</div>
 	<!-- END PAGE CONTENT-->
 	</div>
