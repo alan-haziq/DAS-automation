@@ -16,7 +16,7 @@
       ref  : "origin/master",
       repo : "https://github.com/alan-haziq/DAS-automation.git",
       path : "/srv/das",
-      "post-deploy" : "sudo -s && npm install && bower install && pm2 startOrRestart ecosystem.json5 --env production"
+      "post-deploy" : "sudo npm install && sudo bower install --allow-root && sudo pm2 startOrRestart ecosystem.json5 --env production"
     }
   }
 }
