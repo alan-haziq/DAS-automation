@@ -21,6 +21,18 @@
 		</ul>
 	</div>
 	<!-- END PAGE HEADER-->
+
+
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#!/projects/{{project.id}}" aria-expanded="true">
+			Dashboard</a>
+		</li>
+		<li>
+			<a href="#!/projects/{{project.id}}/costpackages" aria-expanded="false">
+			Cost Packages </a>
+		</li>
+	</ul>
 	<!-- BEGIN PAGE CONTENT-->
 	<div class="row">
 		<!-- BEGIN: Project Summary -->
@@ -160,7 +172,7 @@
 		<!-- END: Project Milestones -->
 
 		<!-- BEGIN: Project Team -->
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<div class="portlet light bg-inverse">
 				<div class="portlet-title">
 					<div class="caption font-green-sharp">
@@ -209,9 +221,33 @@
 			</div>
 		</div>
 		<!-- END: Project Team -->
-
+		<!-- BEGIN: Project CostPackages -->
+		<div class="col-md-4">
+			<div class="portlet light bg-inverse">
+				<div class="portlet-title">
+					<div class="caption font-green-sharp">
+						<i class="icon-settings font-green-sharp"></i>
+						<span class="caption-subject bold uppercase">Costs</span>
+						<span class="caption-helper"></span>
+					</div>
+					<div class="tools">
+						<a href="" class="collapse">
+						</a>
+						<a href="" class="reload" ng-click="onReload()">
+						</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<div class="row form-group">
+						<div class="col-md-4 control-label">Costs</div>
+						<div class="col-md-8 input-group">$2,500,000</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END: Project Finances -->
 		<!-- BEGIN: Project Finances -->
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<div class="portlet light bg-inverse">
 				<div class="portlet-title">
 					<div class="caption font-green-sharp">

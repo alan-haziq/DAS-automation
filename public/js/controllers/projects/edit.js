@@ -38,6 +38,14 @@ angular.module('das.controllers')
       		});
 	    };
 
+	    $scope.$watch('project', function() {
+	    	$scope.costs = _.reduce ( $scope.project.costPackages, function(sum, costPackage) {
+	    		return sum + _.reduce( costPackage.costPackageLines, function(subsum, costPackageLine) {
+	    			return subsum + costPackageLine.flatAmount;
+	    		}, 0);
+	    	}, 0);
+	    }, true);
+
 	    var openModal = function(template, controller, resolve) {
 	    	resolve = _.extend({
     			project: function() { return $scope.project; }
@@ -85,5 +93,13 @@ angular.module('das.controllers')
 	    			'ProjectEditTeamController',
 	    			{});
 			
+	    };
+
+	    $scope.onEditCostPackage = function(costPackageId) {
+	    	openModal('views/projects/edit_costpackage.html', 
+	    			'ProjectEditCostPackageController',
+	    			{
+	    				costPackageId: function() { return costPackageId; }
+	    			});
 	    };
   }]);

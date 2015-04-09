@@ -14,7 +14,23 @@ var allowedFields = ["title", "description", "submittedDate", "contractedStartDa
  */
 exports.project = function(req, res, next, id) {
     console.log('id => ' + id);
-    db.Project.find({ where: {id: id}, include: [db.Milestone, db.FinanceModel, db.CostPackage] }).success(function(project){
+    db.Project.find({ 
+        where: {id: id}, 
+        include: [
+            db.Milestone, 
+            {
+                model: db.FinanceModel, 
+                include: [ {
+                    model: db.FinanceModelItem,
+                    include: [ db.FinanceModelItemLine]
+                }]
+            },
+            {
+                model: db.CostPackage, 
+                include: [ db.CostPackageLine ] 
+            }
+        ] 
+    }).success(function(project){
         if(!project) {
             return next(new Error('Failed to load project ' + id));
         } else {
